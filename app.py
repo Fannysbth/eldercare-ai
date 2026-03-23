@@ -93,12 +93,23 @@ analyzer = CognitiveAnalyzer()
 session = st.session_state.session
 
 # ── Header ─────────────────────────────────────────────────────────────────────
-st.markdown("""
-<div class="ec-header">
-  <div class="ec-logo">🧠</div>
+import streamlit as st
+import base64
+
+# Buka logo
+with open(r"C:\Users\Lenovo\Downloads\eldercare-ai\logo.png", "rb") as f:
+    data = f.read()
+    logo_base64 = base64.b64encode(data).decode("utf-8")
+
+# Header HTML
+st.markdown(f"""
+<div style="display:flex; align-items:center; gap:15px;">
+  <img src="data:image/png;base64,{logo_base64}" style="height:100px; width:auto;">
   <div>
-    <div class="ec-title">ElderCare AI</div>
-    <div class="ec-subtitle">Early Cognitive Decline Detection · Screening Tool Only</div>
+    <div style="font-size:24px; font-weight:bold;">ElderCare AI</div>
+    <div style="font-size:14px; color:gray;">
+      Early Cognitive Decline Detection · Screening Tool Only
+    </div>
   </div>
 </div>
 """, unsafe_allow_html=True)
