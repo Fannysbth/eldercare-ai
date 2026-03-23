@@ -30,7 +30,7 @@ html, body, [data-testid="stAppViewContainer"] { background: #f5f0eb !important;
 [data-testid="stHeader"] { background: transparent; }
 [data-testid="block-container"] { padding: 2rem 3rem 4rem; max-width: 1200px; }
 
-.ec-header { display:flex; align-items:center; gap:1.5rem; padding:2rem 0 2.5rem; border-bottom:2px solid #d4c9bc; margin-bottom:2.5rem; }
+.ec-header { display:flex; align-items:center; gap:1.5rem; border-bottom:2px solid #d4c9bc; margin-bottom:2.5rem; }
 .ec-logo { font-size:3rem; line-height:1; }
 .ec-title { font-family:'DM Serif Display',serif; font-size:2.4rem; color:#2c1810; line-height:1.1; }
 .ec-subtitle { font-size:0.95rem; color:#7a6858; margin-top:0.3rem; letter-spacing:0.02em; }
@@ -93,23 +93,15 @@ analyzer = CognitiveAnalyzer()
 session = st.session_state.session
 
 # ── Header ─────────────────────────────────────────────────────────────────────
-import streamlit as st
-import base64
-
-# Buka logo
-with open(r"C:\Users\Lenovo\Downloads\eldercare-ai\logo.png", "rb") as f:
-    data = f.read()
-    logo_base64 = base64.b64encode(data).decode("utf-8")
-
-# Header HTML
-st.markdown(f"""
-<div style="display:flex; align-items:center; gap:15px;">
-  <img src="data:image/png;base64,{logo_base64}" style="height:100px; width:auto;">
+st.markdown("""
+<div class="ec-header">
+  <div class="ec-logo">
+    <img src="https://raw.githubusercontent.com/Fannysbth/eldercare-ai/master/logo.png" 
+       style="height:150px; width:auto;">
+  </div>
   <div>
-    <div style="font-size:24px; font-weight:bold;">ElderCare AI</div>
-    <div style="font-size:14px; color:gray;">
-      Early Cognitive Decline Detection · Screening Tool Only
-    </div>
+    <div class="ec-title">ElderCare AI</div>
+    <div class="ec-subtitle">Early Cognitive Decline Detection · Screening Tool Only</div>
   </div>
 </div>
 """, unsafe_allow_html=True)
